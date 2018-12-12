@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void doLogin(final String username,final String password){
-        Call call = userService.login(username,password);
+        Call call = userService.getLogin(username,password);
         call.enqueue(new Call.Callback() {
             @Override
             public void onResponse(Call call, Response response) {

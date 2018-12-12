@@ -64,24 +64,23 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call call, Response response) {
                 if(response.isSuccessful()){
-                    ResObj resObj = response.body();
-                    if(resObj.ge  tMessage().equals("true")){
+                    if(response.body().getMessage().equals("true")){
                         //login start main activity
-                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                         intent.putExtra("username", username);
                         startActivity(intent);
 
                     } else {
-                        Toast.makeText(LoginActivity.this, "The username or password is incorrect", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "The username or password is incorrect", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(LoginActivity.this, "Error! Please try again!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Error! Please try again!", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call call, Throwable t) {
-                Toast.makeText(LoginActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
 

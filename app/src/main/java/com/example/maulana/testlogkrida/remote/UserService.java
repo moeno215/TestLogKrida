@@ -9,6 +9,9 @@ import retrofit2.http.Path;
 public interface UserService {
 
 
-    @GET("Krida-Dev/lovs/isotorise/rahman/03091973")
-    Call <ResponseLogin> getLogin();
+    @GET("Krida-Dev/lovs/isotorise/{username}/{password}")
+    Call <ResponseLogin> getLogin(
+    @PATH("username") String username,
+    @PATH("password") String password);
 }
+// Itu ce' lu jangan masukin semua url nya langsung, makanya di MainAtivity lu jadi eror
